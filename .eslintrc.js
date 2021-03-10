@@ -1,42 +1,49 @@
-{
-  "root": true,
+module.exports = {
+  root: true,
   // "parser": "@typescript-eslint/parser" tells ESLint to use the parser package you installed (@typescript-eslint/parser).
   // This allows ESLint to understand TypeScript syntax.
-  "parser": "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
 
-  "parserOptions": {
-    "ecmaVersion": 2019,
-    "project": ["./tsconfig.json"]
+  parserOptions: {
+    ecmaVersion: 2019,
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json'],
   },
 
-  "plugins": [
+  plugins: [
     // tells ESLint to load the plugin package you installed (@typescript-eslint/eslint-plugin).
     // This allows you to use the rules within your codebase.
-    "@typescript-eslint",
-
-    // eslint-plugin-prettier
-    "prettier"
+    '@typescript-eslint',
   ],
 
   // "extends" tells ESLint that your config extends the given configurations
-  "extends": [
-    // is ESLint's inbuilt "recommended" config - it turns on a small, sensible set of rules which lint for well-known best-practices.
-    "eslint:recommended",
+  extends: [
+    // // is ESLint's inbuilt "recommended" config - it turns on a small, sensible set of rules which lint for well-known best-practices.
+    // 'eslint:recommended',
 
-    // is our "recommended" config - it's just like eslint:recommended, except it only turns on rules from our TypeScript-specific plugin.
-    "plugin:@typescript-eslint/recommended",
+    // // is our "recommended" config - it's just like eslint:recommended, except it only turns on rules from our TypeScript-specific plugin.
+    // 'plugin:@typescript-eslint/recommended',
+
+    // eslint-config-airbnb-typescript: This replaces the above
+    'airbnb-typescript/base',
 
     // is another recommended configuration we provide. This one contains rules that specifically require type information.
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
 
-    // eslint-config-prettier
-    "prettier"
+    // eslint-config-prettier, this registers the plugin as well. this requires eslint-plugin-prettier
+    'plugin:prettier/recommended',
   ],
-  "env": {
-    "node": true
+  env: {
+    browser: true,
+    node: true,
+    es2017: true,
   },
-  "rules": {}
-}
+  rules: {
+    'no-console': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
+  },
+};
 
 /* https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/TYPED_LINTING.md
 
