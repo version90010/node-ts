@@ -42,6 +42,13 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/lines-between-class-members': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    'no-restricted-syntax': ['off', 'ForOfStatement'],
+    'no-await-in-loop': 'off',
+    '@typescript-eslint/require-await': 'off',
+    'no-continue': 'off',
   },
 };
 
