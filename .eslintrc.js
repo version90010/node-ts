@@ -40,7 +40,7 @@ module.exports = {
     es2017: true,
   },
   rules: {
-    'no-console': 'warn',
+    'no-console': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/lines-between-class-members': 'off',
